@@ -51,7 +51,16 @@ graby<-seq(2, nrow(cleanz), by=2)
 ypoint<-as.data.frame(cleanz$vals[c(graby)])
 colnames(ypoint) <- c("yvals")
 
-graph<-cbind(xpoint,ypoint)
+index<-as.data.frame(seq(0:(nrow(graph)-1)))
+colnames(index) <- c("index")
+graph<-cbind(xpoint,ypoint,index)
+
+p <- ggplot(graph, aes(xvals, yvals)) +
+  geom_point(size=0.2, colour="darkgreen") +
+  transition_time(index) +
+  shadow_mark()
+
+animate(p)
 
 
 ggplot(data = graph, aes(x = xvals, y=yvals)) + geom_point(size=.1, colour="darkgreen") + 
