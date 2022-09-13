@@ -1,5 +1,7 @@
 library(ggplot2)
 library(plotly)
+library(png) 
+library(gifski)
 
 startx<-0
 starty<-1
