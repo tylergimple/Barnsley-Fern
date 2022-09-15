@@ -57,6 +57,13 @@ index<-as.data.frame(seq(0:(nrow(xpoint)-1)))
 colnames(index) <- c("index")
 graph<-cbind(xpoint,ypoint,index)
 
+bubbleplot2 <- plot_ly(graph, x = ~xvals, y = ~yvals,
+                       sizes = c(10, 50),
+                       marker =
+                         list(opacity = 0.7,
+                              sizemode = "diameter"), color = ~xvals, colors = 'BrBG')
+bubbleplot2
+
 p <- ggplot(graph, aes(xvals, yvals)) +
   geom_point(size=0.2, colour="darkgreen") +
   transition_time(index) +
